@@ -376,7 +376,7 @@ class ChromecastConnection(MqttChangesCallback):
             self.logger.warning("received empty status")
             return
 
-        self.mqtt_properties.write_cast_status(status.display_name, status.volume_level, status.volume_muted)
+        self.mqtt_properties.write_cast_status(status.display_name, status.volume_level, status.volume_muted, status.is_active_input)
         # dummy write as connection status callback does not work at the moment
         self.mqtt_properties.write_connection_status(CONNECTION_STATUS_CONNECTED)
         self.connection_failure_count = 0

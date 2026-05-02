@@ -14,6 +14,7 @@ TOPIC_PLAYER_POSITION = "chromecast/%s/player_position"
 TOPIC_PLAYER_STATE = "chromecast/%s/player_state"
 TOPIC_VOLUME_LEVEL = "chromecast/%s/volume_level"
 TOPIC_VOLUME_MUTED = "chromecast/%s/volume_muted"
+TOPIC_ACTIVE = "chromecast/%s/active"
 TOPIC_MEDIA_TITLE = "chromecast/%s/media/title"
 TOPIC_MEDIA_ALBUM_NAME = "chromecast/%s/media/album_name"
 TOPIC_MEDIA_ARTIST = "chromecast/%s/media/artist"
@@ -125,10 +126,11 @@ class MqttPropertyHandler:
         except Exception:
             self.logger.exception("value conversion error")
 
-    def write_cast_status(self, app_name, volume_level, is_volume_muted):
+    def write_cast_status(self, app_name, volume_level, is_volume_muted, is_active):
         self._write(TOPIC_CURRENT_APP, app_name)
         self._write(TOPIC_VOLUME_LEVEL, volume_level)
         self._write(TOPIC_VOLUME_MUTED, is_volume_muted)
+        self._write(TOPIC_ACTIVE, is_active)
 
     def write_player_status(self, state, current_time, duration):
         self._write(TOPIC_PLAYER_STATE, state)

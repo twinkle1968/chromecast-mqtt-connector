@@ -31,6 +31,9 @@ celerybeat-schedule
 .venv/
 venv/
 ENV/
+bin/
+lib64
+pyvenv.cfg
 
 # PyCharm
 .idea/

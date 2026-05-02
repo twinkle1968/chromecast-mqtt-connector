@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!./bin/env python3
 import logging
 import os
 from handler.event import EventHandler
